@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Route4MeError.html">Route4MeError</a></li><li><a href="Route4MeApiError.html">Route4MeApiError</a></li><li><a href="Route4Me.html">Route4Me</a><ul class='members'><li data-type='member'><a href="Route4Me.html#Optimizations">Optimizations</a></li><li data-type='member'><a href="Route4Me.html#Vehicles">Vehicles</a></li><li data-type='member'><a href="Route4Me.html#.version">version</a></li></ul><ul class='methods'><li data-type='method'><a href="Route4Me.html#_validate">_validate</a></li><li data-type='method'><a href="Route4Me.html#_validateArgs">_validateArgs</a></li><li data-type='method'><a href="Route4Me.html#_makeRequest">_makeRequest</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-route4me-node.html">route4me-node</a><ul class='members'><li data-type='member'><a href="module-route4me-node.html#.Route4Me">Route4Me</a></li><li data-type='member'><a href="module-route4me-node.html#.Route4MeError">Route4MeError</a></li><li data-type='member'><a href="module-route4me-node.html#.Route4MeApiError">Route4MeApiError</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="Optimizations.html">Optimizations</a><ul class='methods'><li data-type='method'><a href="Optimizations.html#create">create</a></li><li data-type='method'><a href="Optimizations.html#get">get</a></li><li data-type='method'><a href="Optimizations.html#list">list</a></li><li data-type='method'><a href="Optimizations.html#remove">remove</a></li><li data-type='method'><a href="Optimizations.html#linkAddress">linkAddress</a></li><li data-type='method'><a href="Optimizations.html#unlinkAddress">unlinkAddress</a></li></ul></li><li><a href="Routes.html">Routes</a><ul class='methods'><li data-type='method'><a href="Routes.html#get">get</a></li><li data-type='method'><a href="Routes.html#list">list</a></li><li data-type='method'><a href="Routes.html#remove">remove</a></li></ul></li><li><a href="Vehicles.html">Vehicles</a><ul class='methods'><li data-type='method'><a href="Vehicles.html#list">list</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-QuickStart with Route4Me JS SDK.html">QuickStart with Route4Me JS SDK</a></li><li><a href="tutorial-maintainer-guide.html">maintainer-guide</a></li></ul><h3>Interfaces</h3><ul><li><a href="ILogger.html">ILogger</a><ul class='methods'><li data-type='method'><a href="ILogger.html#debug">debug</a></li><li data-type='method'><a href="ILogger.html#info">info</a></li><li data-type='method'><a href="ILogger.html#warn">warn</a></li><li data-type='method'><a href="ILogger.html#error">error</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h2 id="access-route4me-s-logistics-as-a-service-api-using-our-node-js-sdk">Access Route4Me's logistics-as-a-service API using our Node.js SDK</h2>
+<p><a href="https://travis-ci.org/route4me/route4me-nodejs-sdk"><img src="https://travis-ci.org/route4me/route4me-nodejs-sdk.svg?branch=master" alt="Build Status"></a>
+<a href="https://ci.appveyor.com/project/maxkoryukov/route4me-nodejs-sdk-oga5i"><img src="https://ci.appveyor.com/api/projects/status/t292y0ywsri2x4el?svg=true" alt="Build status"></a></p>
+<p><a href="https://www.bithound.io/github/route4me/route4me-nodejs-sdk"><img src="https://www.bithound.io/github/route4me/route4me-nodejs-sdk/badges/score.svg" alt="bitHound Overall Score"></a>
+<a href="https://www.bithound.io/github/route4me/route4me-nodejs-sdk/master/dependencies/npm"><img src="https://www.bithound.io/github/route4me/route4me-nodejs-sdk/badges/dependencies.svg" alt="bitHound Dependencies"></a>
+<a href="https://codecov.io/gh/route4me/route4me-nodejs-sdk"><img src="https://codecov.io/gh/route4me/route4me-nodejs-sdk/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://nodesecurity.io/orgs/route4me/projects/5a353146-e6b4-4bc1-8108-f35517faadde"><img src="https://nodesecurity.io/orgs/route4me/projects/5a353146-e6b4-4bc1-8108-f35517faadde/badge" alt="NSP Status"></a>
+<a href="https://codebeat.co/projects/github-com-route4me-route4me-nodejs-sdk"><img src="https://codebeat.co/badges/79f229c5-27f7-4ab9-8503-2d6fc95052f9" alt="codebeat badge"></a></p>
+<h3 id="what-does-the-route4me-sdk-permit-me-to-do-">What does the Route4Me SDK permit me to do?</h3>
+<p>This SDK makes it easier for you use the Route4Me API, which creates optimally sequenced driving routes for many drivers.</p>
+<h3 id="who-can-use-the-route4me-sdk-and-api-">Who can use the Route4Me SDK (and API)?</h3>
+<p>The service is typically used by organizations who must route many drivers to many destinations. In addition to route optimization for new (future) routes, the API can also be used to analyze historical routes, and to distribute routes to field personnel.</p>
+<h3 id="who-is-prohibited-from-using-the-route4me-sdk-and-api-">Who is prohibited from using the Route4Me SDK (and API)?</h3>
+<p>The Route4Me SDK and API cannot be resold or used in a product or system that competes directly with Route4Me. This means that developers cannot resell route optimization services to other businesses or developers. However, developers can integrate our route optimization SDK/API into their software applications. Developers and startups are also permitted to use our software for internal purposes (i.e. a same day delivery startup).</p>
+<h3 id="how-does-the-api-sdk-integration-work-">How does the API/SDK Integration Work?</h3>
+<p>A Route4Me customer, integrator, or partner incorporates the Route4Me SDK or API into their code base.
+Route4Me permits any paying subscriber to interact with every part of its system using it’s API.
+The API is RESTful, which means that it’s web based and can be accessed by other programs and machines
+The API/SDK should be used to automate the route planning process, or to generate many routes with minimal manual intervention</p>
+<h3 id="do-optimized-routes-automatically-appear-inside-my-route4me-account-">Do optimized routes automatically appear inside my Route4Me account?</h3>
+<p>Every Route4Me SDK instance needs a unique API key. The API key can be retrieved inside your Route4Me.com account, inside the Settings tab called API. When a route is planned, it appears inside the corresponding Route4Me account. Because Route4Me web and mobile accounts are synchronized, the routes will appear in both environments at the same time.</p>
+<h3 id="can-i-test-the-sdk-with-other-addresses-without-a-valid-api-key-">Can I test the SDK with other addresses without a valid API Key?</h3>
+<p>No. The sample API key only permits you to optimize routes with the sample address coordinates that are part of this SDK.</p>
+<h3 id="does-the-sdk-have-rate-limits-">Does the SDK have rate limits?</h3>
+<p>The number of requests you can make per second is limited by your current subscription plan. Typically, there are different rate limits for these core features:
+Address Geocoding &amp; Address Reverse Geocoding
+Route Optimization &amp; Management
+Viewing a Route</p>
+<h3 id="what-is-the-recommended-architecture-for-the-route4me-sdk-">What is the recommended architecture for the Route4Me SDK?</h3>
+<p>There are two typical integration strategies that we recommend.  Using this SDK, you can make optimization requests and then the SDK polls the Route4Me API to detect state changes as the optimization progresses. Alternatively, you can provide a webhook/callback url, and the API will notify that callback URL every time there is a state change.</p>
+<h3 id="i-don-t-need-route-management-or-mobile-capabilities-is-there-a-lower-level-route4me-api-just-for-the-optimization-engine-">I don't need route management or mobile capabilities. Is there a lower level Route4Me API just for the optimization engine?</h3>
+<p>Yes. Please contact support@route4me.com to learn about the low-level RESTful API.</p>
+<h3 id="how-fast-is-the-route-route4me-optimization-web-service-">How fast is the route Route4Me Optimization Web Service?</h3>
+<p>Most routes having less than 200 destinations are optimized in 1 second or less.</p>
+<h3 id="can-i-disable-optimization-when-planning-routes-">Can I disable optimization when planning routes?</h3>
+<p>Yes. You can send routes with optimization disabled if you want to conveniently see them on a map, or distribute them to your drivers in the order you prefer.</p>
+<h3 id="can-the-api-be-used-for-aerial-vehicles-such-as-drones-or-self-driving-cars-">Can the API be used for aerial vehicles such as drones or self-driving cars?</h3>
+<p>Yes. The API can accept lat/lng and an unlimited amount of per-address metadata. The metadata will be preserved as passthrough data by our API, so that the receiving device will have access to critical data when our API invokes a webhook callback to the device.</p>
+<h3 id="are-all-my-optimized-routes-stored-permanently-stored-in-the-route4me-database-">Are all my optimized routes stored permanently stored in the Route4Me database?</h3>
+<p>Yes. All routes are permanently stored in the database and are no longer accessible to you after your subscription is terminated.</p>
+<h3 id="can-i-incorporate-your-api-into-my-mobile-application-">Can I incorporate your API into my mobile application?</h3>
+<p>Route4Me’s route planning and optimization technology can only be added into applications that do not directly compete with Route4Me. 
+This means the application’s primary capabilities must be unrelated to route optimization, route planning, or navigation.</p>
+<h3 id="can-i-pay-you-to-develop-a-custom-algorithm-">Can I pay you to develop a custom algorithm?</h3>
+<p>Yes</p>
+<h3 id="can-i-use-your-api-and-resell-it-to-my-customers-">Can I use your API and resell it to my customers?</h3>
+<p>White-labeling and private-labeling Route4Me is possible but the deal’s licensing terms vary considerably based on customer count, route count, and the level of support that Route4Me should provide to your customers.</p>
+<h3 id="does-the-api-sdk-have-tms-or-edi-or-edi-translator-capabilities-">Does the API/SDK have TMS or EDI, or EDI translator capabilities?</h3>
+<p>Route4Me is currently working on these features but they are not currently available for sale.</p>
+<h3 id="can-the-api-sdk-send-notifications-back-to-our-system-using-callbacks-notifications-pushes-or-webhooks-">Can the API/SDK send notifications back to our system using callbacks, notifications, pushes, or webhooks?</h3>
+<p>Because Route4Me processes all routes asynchronously, Route4Me will conveniently notify the endpoint you specify as the route optimization job progresses through each state of the optimization. Every stage of the route optimization process has a unique stage id.</p>
+<h3 id="does-the-route4me-api-and-sdk-work-in-my-country-">Does the Route4Me API and SDK work in my country?</h3>
+<p>Route4Me.com, as well as all of Route4Me’s mobile applications use the Route4Me SDK’s and API.
+Since Route4Me works globally, this means that all of Route4Me’s capabilities are available using the SDK’s in every country </p>
+<h3 id="will-the-route4me-api-sdk-work-in-my-program-on-the-mac-pc-or-linux-">Will the Route4Me API/SDK work in my program on the Mac, PC, or Linux?</h3>
+<p>Customers are encouraged to select their preferred operating system environment. The Route4Me API/SDK will function on any operating system that supports the preferred programming language of the customer. At this point in time, almost every supported SDK can run on any operating system.</p>
+<h3 id="does-the-route4me-api-sdk-require-me-to-buy-my-own-servers-">Does the Route4Me API/SDK require me to buy my own servers?</h3>
+<p>Route4Me has its own computing infrastructure that you can access using the API and SDKs. Customers typically have to run the SDK code on their own computers and/or servers to access this infrastructure.</p>
+<h3 id="does-route4me-have-an-on-premise-solution-">Does Route4Me have an on-premise solution?</h3>
+<p>Route4Me does not currently lease or sell servers, and does not have on-premise appliance solution. This would only be possible in exceptionally unique scenarios.</p>
+<h3 id="does-the-route4me-api-sdk-require-me-to-have-my-own-programmers-">Does the Route4Me API/SDK require me to have my own programmers?</h3>
+<p>The time required to integrate the SDK can be as little as 1 hour or may take several weeks, depending on the number of features being incorporated into the customer’s application and how much integration testing will be done by the client. A programmer’s involvement is almost always required to use Route4Me’s technology when accessing it through the API.</p>
+<h3 id="installation-and-usage">Installation and Usage</h3>
+<h2 id="installation">Installation</h2>
+<pre class="prettyprint source"><code>npm install --save route4me-node</code></pre><h2 id="usage-example">Usage example</h2>
+<h3 id="single-driver-route-optimization">Single Driver Route Optimization</h3>
+<pre class="prettyprint source lang-javascript"><code>var api_key = '11111111111111111111111111111111'
+  , route4me = require('..')(api_key)
+  , addresses = require('./addresses.json');
+
+var params = {
+  addresses: addresses
+, parameters:{
+    algorithm_type: 1
+  , distance_unit: 'mi'
+  , device_type: 'web'
+  , optimize: 'Distance'
+  , travel_mode: 'Driving'
+  , route_max_duration: 86400
+  , vehicle_capacity: 1
+  , vehicle_max_distance_mi: 10000
+  , rt: true
+  }
+};
+
+route4me.OptimizationProblem.optimize(params, function(err, problem) {
+  console.log(err, problem);
+});</code></pre><h3 id="multiple-depot-multiple-driver-route-optimization">Multiple Depot Multiple driver route optimization</h3>
+<pre class="prettyprint source lang-javascript"><code>var api_key = '11111111111111111111111111111111'
+  , route4me = require('..')(api_key)
+  , addresses = require('./addresses.json');
+
+var params = {
+  addresses: addresses
+, parameters:{
+    algorithm_type: 4
+  , distance_unit: 'mi'
+  , device_type: 'web'
+  , optimize: 'Distance'
+  , travel_mode: 'Driving'
+  , route_max_duration: 86400
+  , vehicle_capacity: 50
+  , vehicle_max_distance_mi: 10000
+  , parts: 50
+  }
+};
+
+route4me.OptimizationProblem.optimize(params, function(err, problem) {
+  console.log(err, problem);
+});</code></pre><h2 id="tests">Tests</h2>
+<pre class="prettyprint source"><code>npm test</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Jan 28 2017 23:48:49 GMT+0500 (+05) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
