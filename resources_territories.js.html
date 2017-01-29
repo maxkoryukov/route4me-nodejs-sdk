@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>resources/territories.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Route4MeError.html">Route4MeError</a></li><li><a href="Route4MeApiError.html">Route4MeApiError</a></li><li><a href="Route4Me.html">Route4Me</a><ul class='members'><li data-type='member'><a href="Route4Me.html#Addresses">Addresses</a></li><li data-type='member'><a href="Route4Me.html#AvoidanceZones">AvoidanceZones</a></li><li data-type='member'><a href="Route4Me.html#Optimizations">Optimizations</a></li><li data-type='member'><a href="Route4Me.html#Routes">Routes</a></li><li data-type='member'><a href="Route4Me.html#Territories">Territories</a></li><li data-type='member'><a href="Route4Me.html#Vehicles">Vehicles</a></li><li data-type='member'><a href="Route4Me.html#.version">version</a></li></ul><ul class='methods'><li data-type='method'><a href="Route4Me.html#_validate">_validate</a></li><li data-type='method'><a href="Route4Me.html#_validateArgs">_validateArgs</a></li><li data-type='method'><a href="Route4Me.html#_makeRequest">_makeRequest</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-route4me-node.html">route4me-node</a><ul class='members'><li data-type='member'><a href="module-route4me-node.html#.Route4Me">Route4Me</a></li><li data-type='member'><a href="module-route4me-node.html#.Route4MeError">Route4MeError</a></li><li data-type='member'><a href="module-route4me-node.html#.Route4MeApiError">Route4MeApiError</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="Addresses.html">Addresses</a><ul class='methods'><li data-type='method'><a href="Addresses.html#updateCustomData">updateCustomData</a></li></ul></li><li><a href="AvoidanceZones.html">AvoidanceZones</a><ul class='methods'><li data-type='method'><a href="AvoidanceZones.html#create">create</a></li><li data-type='method'><a href="AvoidanceZones.html#get">get</a></li><li data-type='method'><a href="AvoidanceZones.html#list">list</a></li><li data-type='method'><a href="AvoidanceZones.html#update">update</a></li><li data-type='method'><a href="AvoidanceZones.html#remove">remove</a></li></ul></li><li><a href="Optimizations.html">Optimizations</a><ul class='methods'><li data-type='method'><a href="Optimizations.html#create">create</a></li><li data-type='method'><a href="Optimizations.html#get">get</a></li><li data-type='method'><a href="Optimizations.html#list">list</a></li><li data-type='method'><a href="Optimizations.html#remove">remove</a></li><li data-type='method'><a href="Optimizations.html#linkAddress">linkAddress</a></li><li data-type='method'><a href="Optimizations.html#unlinkAddress">unlinkAddress</a></li></ul></li><li><a href="Routes.html">Routes</a><ul class='methods'><li data-type='method'><a href="Routes.html#duplicate">duplicate</a></li><li data-type='method'><a href="Routes.html#merge">merge</a></li><li data-type='method'><a href="Routes.html#get">get</a></li><li data-type='method'><a href="Routes.html#list">list</a></li><li data-type='method'><a href="Routes.html#remove">remove</a></li></ul></li><li><a href="Territories.html">Territories</a><ul class='methods'><li data-type='method'><a href="Territories.html#create">create</a></li><li data-type='method'><a href="Territories.html#get">get</a></li><li data-type='method'><a href="Territories.html#list">list</a></li><li data-type='method'><a href="Territories.html#update">update</a></li><li data-type='method'><a href="Territories.html#remove">remove</a></li></ul></li><li><a href="Vehicles.html">Vehicles</a><ul class='methods'><li data-type='method'><a href="Vehicles.html#list">list</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-api-vs-sdk.html">api-vs-sdk</a></li><li><a href="tutorial-maintainer-guide.html">maintainer-guide</a></li></ul><h3>Interfaces</h3><ul><li><a href="ILogger.html">ILogger</a><ul class='methods'><li data-type='method'><a href="ILogger.html#debug">debug</a></li><li data-type='method'><a href="ILogger.html#info">info</a></li><li data-type='method'><a href="ILogger.html#warn">warn</a></li><li data-type='method'><a href="ILogger.html#error">error</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">resources/territories.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict"
+
+const errors          = require("./../errors")
+
+/**
+ * @namespace
+ */
+class Territories {
+	/**
+	 * Territories facility
+	 *
+	 * @see {@link https://route4me.io/docs/#territories}
+	 * @since 0.1.8
+	 * @private
+	 * @category Territories
+	 *
+	 * @param  {Route4Me}      route4me - Route4Me manager
+	 * @return {Territories}            - Territories facility
+	 */
+	constructor(route4me) {
+		this.r = route4me
+	}
+
+	/**
+	 * Create a new Territory.
+	 *
+	 * @see {@link https://route4me.io/docs/#create-a-territory Route4Me API}
+	 * @category Territories
+	 * @since 0.1.8
+	 *
+	 * @param {jsonschema:Territories.Territory}  data       - Valid Territory data.
+	 * @param {module:route4me-node~RequestCallback&lt;jsonschema:Territories.Territory>}
+	 *        [callback]
+	 */
+	create(data, callback) {
+		return this.r._makeRequest({
+			method: "POST",
+			path: "/api.v4/territory.php",
+			body: data,
+			schemaName: "Territories.Territory",
+		}, callback)
+	}
+
+	/**
+	 * Get a specified Territory by ID.
+	 *
+	 * @see {@link https://route4me.io/docs/#get-a-territory Route4Me API}
+	 * @category Territories
+	 * @since 0.1.8
+	 *
+	 * @param {string}   id                       - Territory ID
+	 * @param {boolean}  [includeAddresses=false] - If true, enclosed addresses will be
+	 *        included in a response
+	 * @param {module:route4me-node~RequestCallback&lt;jsonschema:Territories.Territory>} [callback]
+	 */
+	get(id, includeAddresses, callback) {
+		let cb = callback
+		let ia = includeAddresses
+		if (typeof cb === "undefined"
+			&amp;&amp; typeof ia === "function")		{
+			cb = ia
+			ia = false
+		}
+		if (typeof ia !== "boolean") {
+			throw new errors.Route4MeError(
+				`Territory.get: wrong type for argument 'includeAddresses':${typeof ia}`)
+		}
+
+		return this.r._makeRequest({
+			method: "GET",
+			path: "/api.v4/territory.php",
+			qs: {
+				"territory_id": id,
+				"addresses": ia ? "1" : "0",
+			},
+			schemaName: "Territories.Territory",
+		}, cb)
+	}
+
+	/**
+	 * GET all of the Territories defined by a user.
+	 *
+	 * @see {@link https://route4me.io/docs/#get-multiple-territories Route4Me API}
+	 * @category Territories
+	 * @since 0.1.8
+	 *
+	 * @todo TODO: There is no schema for the response, but it is just an array of known schema
+	 *
+	 * @param {module:route4me-node~RequestCallback&lt;jsonschema:Territories.Territories>} [callback]
+	 */
+	list(callback) {
+		return this.r._makeRequest({
+			method: "GET",
+			path: "/api.v4/territory.php",
+			schemaName: "Territories.Territories",
+		}, callback)
+	}
+
+	/**
+	 * UPDATE a specified Territory.
+	 *
+	 * @see {@link https://route4me.io/docs/#update-a-territory Route4Me API}
+	 * @category Territories
+	 * @since 0.1.8
+	 *
+	 * @param {string}  id       - Territory ID
+	 * @param {jsonschema:Territories.Territory}  data       - Valid Territory data.
+	 * @param {module:route4me-node~RequestCallback&lt;jsonschema:Territories.Territory>}
+	 *        [callback]
+	 */
+	update(id, data, callback) {
+		return this.r._makeRequest({
+			method: "PUT",
+			path: "/api.v4/territory.php",
+			qs: {
+				"territory_id": id,
+			},
+			body: data,
+			schemaName: "Territories.Territory",
+		}, callback)
+	}
+
+	/**
+	 * DELETE a specified Territory.
+	 *
+	 * @see {@link https://route4me.io/docs/#remove-a-territory Route4Me API}
+	 * @category Territories
+	 * @since 0.1.8
+	 *
+	 * @todo TODO: There is no schema for the response
+	 * @example
+	 * SampleResponse = {"status":true}
+	 *
+	 * @todo TODO: parse the response
+	 *
+	 * @param {string}  id       - Territory ID
+	 * @param {module:route4me-node~RequestCallback&lt;jsonschema:Territories.RemoveResponse>}
+	 *     [callback]
+	 */
+	remove(id, callback) {
+		return this.r._makeRequest({
+			method: "DELETE",
+			path: "/api.v4/territory.php",
+			qs: {
+				"territory_id": id,
+			},
+			schemaName: "Territories.RemoveResponse",
+		}, callback)
+	}
+}
+
+module.exports = Territories
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Jan 29 2017 16:36:53 GMT+0500 (+05) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
